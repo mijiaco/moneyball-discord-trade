@@ -155,6 +155,9 @@ def test_franchise_salary_helpers_parse_money() -> None:
 
 def test_player_position_from_label() -> None:
     assert player_position_from_label("Reid, Desmond FA RB") == "RB"
+    assert player_position_from_label("Rams, Los Angeles LAR TMQB") == "TMQB"
+    assert player_position_from_label("Seahawks, Seattle SEA TMPN") == "TMPN"
+    assert player_position_from_label("Bills, Buffalo BUF TMPK") == "TMPK"
     assert player_position_from_label("Player 1") == ""
 
 

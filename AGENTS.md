@@ -34,7 +34,7 @@ Do **not** commit secrets, `.env`, or API keys. Never overwrite `.env` without e
 | `src/rfa_report.py` | RFA Discord formatters (and re-exports from `rfa_state`). |
 | `src/roster_violations.py` | IR eligibility, roster/taxi/IR slot limits, salary cap, starter-depth violations, and Active Roster: Can Be Demoted formatting. |
 | `src/taxi_cut_report.py` | Taxi-squad cut dead-money detection, refund matching, immediate + weekly Discord formatters. |
-| `src/top_scorers_report.py` | NFL-slate and weekly-cumulative top-5 scorers by position (league scoring). |
+| `src/top_scorers_report.py` | NFL-slate and weekly-cumulative top-5 scorers by position (league scoring, including TMQB / TMPN / TMPK). |
 | `src/google_sheets.py` | Service-account Sheets read (top 32) + write (RFA tab). |
 | `src/bot.py` | Optional Discord.py bot. |
 | `.github/workflows/scheduled-export.yml` | Actions workflow: dispatch-only triggers, env wiring, Contents API commit for state files. |

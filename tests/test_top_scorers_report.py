@@ -187,6 +187,20 @@ def test_top_scorers_sorts_and_limits() -> None:
     assert [row.player_id for row in ranked["RB"]] == ["2", "3", "1", "4", "5"]
 
 
+def test_top_scorers_includes_team_qb_punt_and_pk() -> None:
+    rows = [
+        PlayerWeekScore("1", "TMQB", "Rams, Los Angeles LAR TMQB", 12.0, "LAR"),
+        PlayerWeekScore("2", "TMPN", "Seahawks, Seattle SEA TMPN", 8.0, "SEA"),
+        PlayerWeekScore("3", "TMPK", "Bills, Buffalo BUF TMPK", 11.0, "BUF"),
+        PlayerWeekScore("4", "QB", "Allen, Josh BUF QB", 30.0, "BUF"),
+    ]
+    ranked = top_scorers_by_position(rows)
+    assert list(ranked) == ["QB", "TMQB", "TMPN", "TMPK"]
+    assert ranked["TMQB"][0].player_id == "1"
+    assert ranked["TMPN"][0].player_id == "2"
+    assert ranked["TMPK"][0].player_id == "3"
+
+
 def test_announced_top_scorer_slate_ids_is_week_scoped() -> None:
     seen = {
         "TOP_SCORERS|2026-W01|wed",
